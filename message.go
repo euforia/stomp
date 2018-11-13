@@ -47,3 +47,9 @@ func (msg *Message) ShouldAck() bool {
 
 	return msg.Subscription.AckMode() != AckAuto
 }
+
+func NewAckNackMessage(subID string, ackMode AckMode) *Message {
+	return &Message{
+		Subscription: &Subsciption{ackMode:ackMode},
+	}
+}
